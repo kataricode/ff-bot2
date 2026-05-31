@@ -111,22 +111,19 @@ if (command === "info") {
 
 // ======= LỆNH CHECK =======
 if (command === "check") {
-  
-  // ID kênh được phép sử dụng lệnh check ban
+
   const allowedCheckChannel = "1510698085305553020";
 
-  // Kiểm tra xem có đúng kênh cho phép không
   if (msg.channel.id !== allowedCheckChannel) {
     const channelWarn = await msg.reply(
       `❌ Lệnh này chỉ được dùng tại kênh: <#${allowedCheckChannel}>!`
     );
-    
-    // Tự động xóa tin nhắn cảnh báo và lệnh sai sau 5 giây
+
     setTimeout(() => {
       channelWarn.delete().catch(() => {});
       msg.delete().catch(() => {});
     }, 5000);
-    return; // Dừng thực hiện lệnh
+    return;
   }
 
   const uid = args[0];
@@ -137,15 +134,26 @@ if (command === "check") {
   });
 
   try {
-    // ===== API CHECK BAN MỚI =====
+
+    // ===== SAFE API (CHỈ FIX CRASH) =====
     const res = await fetch(`http://raw.thug4ff.xyz/check?uid=${uid}&key=great`);
-    const data = await res.json();
+
+    const text = await res.text();
+
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch (e) {
+      console.log("RAW API:", text);
+      throw new Error("API không trả JSON");
+    }
 
     if (data.status !== 200 || !data.data) {
       throw new Error("Không tìm thấy UID");
     }
 
     const player = data.data;
+
     const nickname = player.nickname || "N/A";
     const region = player.region || "N/A";
     const level = player.level ?? "N/A";
@@ -160,7 +168,7 @@ if (command === "check") {
     let image;
     let description;
 
-    // ===== TRẠNG THÁI BAN =====
+    // ===== TRẠNG THÁI BAN (GIỮ NGUYÊN 100%) =====
 
     // ❌ BAN VĨNH VIỄN
     if (banStatus === 1) {
@@ -216,9 +224,7 @@ if (command === "check") {
       .setTitle(title)
       .setColor(color)
       .setDescription(description)
-      .setThumbnail(
-        msg.author.displayAvatarURL({ dynamic: true, size: 256 })
-      )
+      .setThumbnail(msg.author.displayAvatarURL({ dynamic: true, size: 256 }))
       .setImage(image)
       .setFooter({ text: "Dev: Katari 📌" })
       .setTimestamp();
