@@ -52,6 +52,14 @@ client.once("ready", () => {
 
 });
 
+client.on("messageCreate", async (msg) => {
+
+  if (msg.author.bot) return;
+  if (!msg.content.startsWith(PREFIX)) return;
+
+  const args = msg.content.slice(PREFIX.length).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
+
   // ======= LỆNH INFO =======
 if (command === "info") {
 
