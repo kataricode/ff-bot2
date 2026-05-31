@@ -932,6 +932,8 @@ if (command === "randoms") {
 }
 // ===================== HẾT LỆNH RANDOM S =====================
 
+});
+
 // ==================== HÀM BỔ TRỢ (CHUYỂN ĐỔI THỜI GIAN) ====================
 function formatTimestampV2(timestamp) {
   if (!timestamp || timestamp === "0") return "not found";
