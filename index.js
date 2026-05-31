@@ -1059,6 +1059,30 @@ async function getFullInfoEmbed(uid, user) {
   return embed;
 }
 
+// ================== MÀU THEO RANK ==================
+
+function getRankColor(rank) {
+
+  if (!rank) return "#808080";
+
+  const name = rank.toString().toLowerCase();
+
+  if (name.includes("heroic") || name.includes("huyền thoại")) return "#FF0000";
+
+  if (name.includes("diamond") || name.includes("kim cương")) return "#00BFFF";
+
+  if (name.includes("platinum") || name.includes("bạch kim")) return "#C0C0C0";
+
+  if (name.includes("gold") || name.includes("vàng")) return "#FFD700";
+
+  if (name.includes("silver") || name.includes("bạc")) return "#C0C0C0";
+
+  if (name.includes("bronze") || name.includes("đồng")) return "#CD7F32";
+
+  return "#00FFFF";
+
+}
+
 // ==================== LOGIN BOT ====================
 
 console.log("TOKEN length:", process.env.TOKEN?.length);
