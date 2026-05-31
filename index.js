@@ -56,7 +56,7 @@ client.once("ready", () => {
 if (command === "info") {
 
   // ID kênh được phép sử dụng lệnh info
-  const allowedInfoChannel = "1450083732211109928";
+  const allowedInfoChannel = "1510697743788675232";
 
   // Kiểm tra xem có đúng kênh cho phép không
   if (msg.channel.id !== allowedInfoChannel) {
@@ -105,7 +105,7 @@ if (command === "info") {
 if (command === "check") {
   
   // ID kênh được phép sử dụng lệnh check ban
-  const allowedCheckChannel = "1450084107051733133";
+  const allowedCheckChannel = "1510698085305553020";
 
   // Kiểm tra xem có đúng kênh cho phép không
   if (msg.channel.id !== allowedCheckChannel) {
@@ -238,7 +238,7 @@ if (command === "check") {
 // ===================== LỆNH !TEAM3 / !TEAM4 / !TEAM5 / !TEAM6 =====================
 if (command.startsWith("team")) {
 
-    const allowedTeamChannel = "1450085637020717117";
+    const allowedTeamChannel = "1510699864588030033";
 
     // ❌ Sai kênh
     if (msg.channel.id !== allowedTeamChannel) {
@@ -337,7 +337,7 @@ if (command.startsWith("team")) {
 if (command === "emote") {
 
     // ID kênh được phép sử dụng lệnh emote
-    const allowedEmoteChannel = "1450085765764747420";
+    const allowedEmoteChannel = "1510698679257010187";
 
     // 1. Kiểm tra xem có đúng kênh cho phép không
     if (msg.channel.id !== allowedEmoteChannel) {
@@ -476,7 +476,7 @@ if (command === "emote") {
 if (command === "random") {
 
     // ID kênh được phép sử dụng lệnh random (chung kênh với emote)
-    const allowedRandomChannel = "1450085765764747420";
+    const allowedRandomChannel = "1510698679257010187";
 
     // 1. Kiểm tra xem có đúng kênh cho phép không
     if (msg.channel.id !== allowedRandomChannel) {
@@ -633,7 +633,7 @@ if (command === "random") {
 if (command === "emotes") {
 
     // ID kênh được phép sử dụng lệnh emotes (chung kênh với emote và random)
-    const allowedEmotesChannel = "1450085765764747420";
+    const allowedEmotesChannel = "1510698679257010187";
 
     // 1. Kiểm tra xem có đúng kênh cho phép không
     if (msg.channel.id !== allowedEmotesChannel) {
@@ -758,7 +758,7 @@ if (command === "emotes") {
 if (command === "randoms") {
 
     // ID kênh được phép sử dụng (Dùng chung với các lệnh emote khác)
-    const allowedRandomsChannel = "1450085765764747420";
+    const allowedRandomsChannel = "1510698679257010187";
 
     // 1. Kiểm tra xem có đúng kênh cho phép không
     if (msg.channel.id !== allowedRandomsChannel) {
