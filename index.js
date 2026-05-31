@@ -174,7 +174,7 @@ if (command === "check") {
 > **UID:** \`${uid}\`
 > **Khu vực:** ${region}
 > **Cấp độ:** ${level}
-> **Thời gian bắt đầu ban:** ${formatTimestamp(banInfo.start_ban)}`;
+> **Thời gian bắt đầu ban:** ${formatTimestampV2(banInfo.start_ban)}`;
     }
 
     // ⚠️ BAN TẠM THỜI
@@ -209,7 +209,7 @@ if (command === "check") {
 > **UID:** \`${uid}\`
 > **Khu vực:** ${region}
 > **Cấp độ:** ${level}
-> **Lần đăng nhập cuối:** ${formatTimestamp(lastLogin)}`;
+> **Lần đăng nhập cuối:** ${formatTimestampV2(lastLogin)}`;
     }
 
     const embed = new EmbedBuilder()
